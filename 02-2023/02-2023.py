@@ -19,6 +19,7 @@ for idx, line in enumerate(input[:100]):
     line = line.replace("Game " + str(idx+1) + ": ", "").replace(";", "").replace(",", "")
     line = line.split(" ")
 
+    #NOTE: This can be turned into a for-loop
     max_cube_count[0] = max([int(line[index-1]) for (index, item) in enumerate(line) if item == "red"])
     max_cube_count[1] = max([int(line[index-1]) for (index, item) in enumerate(line) if item == "green"])
     max_cube_count[2] = max([int(line[index-1]) for (index, item) in enumerate(line) if item == "blue"])
@@ -29,7 +30,6 @@ for idx, line in enumerate(input[:100]):
         #print(line)
     else:
         sum += idx + 1
-
     power += np.prod(np.asarray(max_cube_count))
 
 print(sum)
